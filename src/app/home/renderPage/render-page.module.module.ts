@@ -5,6 +5,10 @@ import { SecondComponent } from './second/second.component';
 import { ThirdComponent } from './third/third.component';
 import { MainComponent } from './main/main.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DxTextBoxModule, DxTextAreaModule } from 'devextreme-angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from 'src/app/share-module/share-module.module';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'main'},
@@ -29,12 +33,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     FirstComponent,
-    SecondComponent,
     ThirdComponent,
     MainComponent
   ],
   imports: [
     CommonModule,
+    DxTextBoxModule,
+    DxTextAreaModule,
+    SharedModule.forRoot(),
     RouterModule.forChild(routes)
   ]
 })

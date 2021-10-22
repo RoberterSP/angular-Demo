@@ -1,12 +1,112 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
+import {
+  DxButtonGroupModule,
+  DxButtonModule,
+  DxCalendarModule,
+  DxCheckBoxModule,
+  DxDataGridModule,
+  DxDateBoxModule,
+  DxDropDownBoxModule,
+  DxFormModule,
+  DxListModule,
+  DxLoadIndicatorModule,
+  DxLoadPanelModule,
+  DxNumberBoxModule,
+  DxPivotGridModule,
+  DxPopoverModule,
+  DxPopupModule,
+  DxRadioGroupModule,
+  DxScrollViewModule,
+  DxSelectBoxModule,
+  DxTabsModule,
+  DxTemplateModule,
+  DxTextAreaModule,
+  DxTextBoxModule,
+  DxToolbarModule,
+  DxTreeListModule,
+  DxTreeViewModule,
+  DxValidationGroupModule,
+  DxValidationSummaryModule,
+  DxValidatorModule,
+  DxSwitchModule,
+  DxDrawerModule,
+  DxTagBoxModule,
+  DxHtmlEditorModule,
+  DxDropDownButtonModule,
+  DxSpeedDialActionModule,
+  DxAccordionModule,
+  DxBoxModule,
+  DxChartModule,
+  DxFileUploaderModule,
+  DxContextMenuModule,
+  DxTabPanelModule,
+  DxMenuModule,
+  DxTooltipModule,
+  DxSortableModule,
+  DxProgressBarModule,
+  DxSchedulerModule,
+} from 'devextreme-angular';
+const modules = [
+  CommonModule,
+  // DevExtreme
+  DxButtonGroupModule,
+  DxButtonModule,
+  DxCalendarModule,
+  DxCheckBoxModule,
+  DxDataGridModule,
+  DxDateBoxModule,
+  DxDropDownBoxModule,
+  DxFormModule,
+  DxListModule,
+  DxLoadIndicatorModule,
+  DxLoadPanelModule,
+  DxNumberBoxModule,
+  DxPivotGridModule,
+  DxPopoverModule,
+  DxPopupModule,
+  DxRadioGroupModule,
+  DxScrollViewModule,
+  DxSelectBoxModule,
+  DxTabsModule,
+  DxTemplateModule,
+  DxTextAreaModule,
+  DxTextBoxModule,
+  DxToolbarModule,
+  DxTreeListModule,
+  DxTreeViewModule,
+  DxValidationGroupModule,
+  DxValidationSummaryModule,
+  DxValidatorModule,
+  DxSwitchModule,
+  DxDrawerModule,
+  DxTagBoxModule,
+  DxHtmlEditorModule,
+  DxDropDownButtonModule,
+  DxSpeedDialActionModule,
+  DxAccordionModule,
+  DxContextMenuModule,
+  DxBoxModule,
+  DxChartModule,
+  DxFileUploaderModule,
+  DxTabPanelModule,
+  DxMenuModule,
+  DxTooltipModule,
+  DxSortableModule,
+  DxProgressBarModule,
+  DxSchedulerModule,
+];
 @NgModule({
+  imports: [...modules],
+  exports: [...modules],
   declarations: [],
-  imports: [
-    CommonModule
-  ]
 })
-export class ShareModuleModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders<SharedModule> {
+    return {
+      ngModule: SharedModule,
+    };
+  }
+}
+
