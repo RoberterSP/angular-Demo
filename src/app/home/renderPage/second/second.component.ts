@@ -34,15 +34,3 @@ export class SecondComponent implements OnInit {
   }
 
 }
-@NgModule({
-  imports: [
-      BrowserModule,
-      DxHtmlEditorModule,
-      DxCheckBoxModule
-  ],
-  declarations: [SecondComponent],
-  bootstrap: [SecondComponent]
-})
-export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule)

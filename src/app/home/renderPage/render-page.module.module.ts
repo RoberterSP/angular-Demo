@@ -17,11 +17,11 @@ const routes: Routes = [
     component: FirstComponent,
   },
   {
-    path: 'case',
+    path: 'second',
     component: SecondComponent,
   },
   {
-    path: 'match-family',
+    path: 'third',
     component: ThirdComponent,
   },
   {
@@ -34,6 +34,7 @@ const routes: Routes = [
   declarations: [
     FirstComponent,
     ThirdComponent,
+    SecondComponent,
     MainComponent
   ],
   imports: [
