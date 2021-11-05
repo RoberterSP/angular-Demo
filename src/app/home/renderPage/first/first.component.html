@@ -1,10 +1,26 @@
 <dx-button type="defaukt" text="Multiple form valid (submit)" icon="plus" (onClick)="submit()"></dx-button>
 <div class="long-title">
-    <h3>Employee Details</h3>
+  <h3>Employee Details</h3>
 </div>
+<div class="contain">
+    <dx-text-box  [height]="90" class="textBox" (onEnterKey)="onEnterKey($event)" [readOnly]="false" [(value)]="valueForEditableTextArea">
+      </dx-text-box>
+      <div class="button-df dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-texteditor-empty dx-widget">
+        <dx-button
+          stylingMode="contained"
+          text="Contained"
+          type="default"
+          [width]="120"
+          (onClick)="click()">
+      </dx-button>
+      </div>
+      
+</div>
+
+
 <div id="form-container">
-    <dx-validation-group #validGroup>
-    <dx-form id="form"
+  <dx-validation-group #validGroup>
+    <!-- <dx-form id="form"
         #form
         [(formData)]="employee">
         <dxi-item dataField="FirstName" [editorOptions]="{ disabled: true }"></dxi-item>
@@ -22,6 +38,6 @@
         <dxi-item dataField="Email">
             <dxi-validation-rule type="required"></dxi-validation-rule>
         </dxi-item>        
-    </dx-form>
-</dx-validation-group>
+    </dx-form> -->
+  </dx-validation-group>
 </div>

@@ -13,7 +13,7 @@ export class Employee {
     Email!: string;
 }
 
-let employee : Employee = {
+let employee: Employee = {
     ID: 1,
     FirstName: "John",
     LastName: "Heart",
@@ -51,147 +51,8 @@ let states: State[] = [{
 }, {
     "ID": 7,
     "Name": "Connecticut"
-}, {
-    "ID": 8,
-    "Name": "Delaware"
-}, {
-    "ID": 9,
-    "Name": "District of Columbia"
-}, {
-    "ID": 10,
-    "Name": "Florida"
-}, {
-    "ID": 11,
-    "Name": "Georgia"
-}, {
-    "ID": 12,
-    "Name": "Hawaii"
-}, {
-    "ID": 13,
-    "Name": "Idaho"
-}, {
-    "ID": 14,
-    "Name": "Illinois"
-}, {
-    "ID": 15,
-    "Name": "Indiana"
-}, {
-    "ID": 16,
-    "Name": "Iowa"
-}, {
-    "ID": 17,
-    "Name": "Kansas"
-}, {
-    "ID": 18,
-    "Name": "Kentucky"
-}, {
-    "ID": 19,
-    "Name": "Louisiana"
-}, {
-    "ID": 20,
-    "Name": "Maine"
-}, {
-    "ID": 21,
-    "Name": "Maryland"
-}, {
-    "ID": 22,
-    "Name": "Massachusetts"
-}, {
-    "ID": 23,
-    "Name": "Michigan"
-}, {
-    "ID": 24,
-    "Name": "Minnesota"
-}, {
-    "ID": 25,
-    "Name": "Mississippi"
-}, {
-    "ID": 26,
-    "Name": "Missouri"
-}, {
-    "ID": 27,
-    "Name": "Montana"
-}, {
-    "ID": 28,
-    "Name": "Nebraska"
-}, {
-    "ID": 29,
-    "Name": "Nevada"
-}, {
-    "ID": 30,
-    "Name": "New Hampshire"
-}, {
-    "ID": 31,
-    "Name": "New Jersey"
-}, {
-    "ID": 32,
-    "Name": "New Mexico"
-}, {
-    "ID": 33,
-    "Name": "New York"
-}, {
-    "ID": 34,
-    "Name": "North Carolina"
-}, {
-    "ID": 35,
-    "Name": "Ohio"
-}, {
-    "ID": 36,
-    "Name": "Oklahoma"
-}, {
-    "ID": 37,
-    "Name": "Oregon"
-}, {
-    "ID": 38,
-    "Name": "Pennsylvania"
-}, {
-    "ID": 39,
-    "Name": "Rhode Island"
-}, {
-    "ID": 40,
-    "Name": "South Carolina"
-}, {
-    "ID": 41,
-    "Name": "South Dakota"
-}, {
-    "ID": 42,
-    "Name": "Tennessee"
-}, {
-    "ID": 43,
-    "Name": "Texas"
-}, {
-    "ID": 44,
-    "Name": "Utah"
-}, {
-    "ID": 45,
-    "Name": "Vermont"
-}, {
-    "ID": 46,
-    "Name": "Virginia"
-}, {
-    "ID": 47,
-    "Name": "Washington"
-}, {
-    "ID": 48,
-    "Name": "West Virginia"
-}, {
-    "ID": 49,
-    "Name": "Wisconsin"
-}, {
-    "ID": 50,
-    "Name": "Wyoming"
-}, {
-    "ID": 51,
-    "Name": "North Dakota"
 }];
-let positions : string[] = [
-    "HR Manager",
-    "IT Manager",
-    "CEO",
-    "Controller",
-    "Sales Manager",
-    "Support Manager",
-    "Shipping Manager"
+let positions: string[] = [
 ];
 
 let markup: string = `
@@ -247,22 +108,91 @@ let markup: string = `
         </tr>
     </table>
 `;
+export class Employee1 {
+    id: number;
 
+    firstName: string;
 
+    lastName: string;
+
+    gender: string;
+
+    birthDate: Date;
+}
+
+const employees: Employee1[] = [];
+
+const surnames: string[] = [
+    'Smith',
+    'Johnson',
+    'Brown',
+    'Taylor',
+    'Anderson',
+    'Harris',
+    'Clark',
+    'Allen',
+    'Scott',
+    'Carter'];
+
+const names: string[] = [
+    'James',
+    'John',
+    'Robert',
+    'Christopher',
+    'George',
+    'Mary',
+    'Nancy',
+    'Sandra',
+    'Michelle',
+    'Betty'];
+
+const gender: string[] = ['Male', 'Female'];
+let s = 123456789;
 @Injectable()
 export class Service {
     getMarkup(): string {
         return markup;
     }
-    getEmployee() : Employee {
+    getEmployee(): Employee {
         return employee;
     }
 
-    getPositions() : string[] {
+    getPositions(): string[] {
         return positions
     }
 
     getStates(): State[] {
         return states;
+    }
+    random() {
+        s = (1103515245 * s + 12345) % 2147483647;
+        return s % (10 - 1);
+    }
+
+    generateData(count: number) {
+        let i: number;
+        const startBirthDate = Date.parse('1/1/1975');
+        const endBirthDate = Date.parse('1/1/1992');
+
+        for (i = 0; i < count; i++) {
+            const birthDate = new Date(startBirthDate + Math.floor(
+                this.random()
+                * (endBirthDate - startBirthDate) / 10,
+            ));
+            birthDate.setHours(12);
+
+            const nameIndex = this.random();
+            const item = {
+                id: i + 1,
+                firstName: names[nameIndex],
+                lastName: surnames[this.random()],
+                gender: gender[Math.floor(nameIndex / 5)],
+                birthDate,
+            };
+            employees.push(item);
+        }
+
+        // return { employees, totalCount: count };
+        return employees
     }
 }

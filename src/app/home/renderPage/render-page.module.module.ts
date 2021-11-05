@@ -7,7 +7,7 @@ import { MainComponent } from './main/main.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DxTextBoxModule, DxTextAreaModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from 'src/app/share-module/share-module.module';
+import { SharedModule } from 'src/app/share/share.module';
 
 
 const routes: Routes = [

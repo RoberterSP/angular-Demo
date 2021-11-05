@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { SharedModule } from '../share-module/share-module.module';
+import { SharedModule } from '../share/share.module';
 
 const routes: Routes = [
   {
@@ -14,6 +14,12 @@ const routes: Routes = [
             loadChildren: () => {
                 return import('./renderPage/render-page.module.module').then(m => m.RenderPageModuleModule);
             }
+        },
+        {
+          path: 'demo',
+          loadChildren: () => {
+            return import('./demo/demo.module.module').then(m => m.DemoPageModuleModule)
+          }
         }
     ]
   },
@@ -21,7 +27,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     SharedModule.forRoot(),
