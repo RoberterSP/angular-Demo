@@ -20,7 +20,14 @@ const routes: Routes = [
           loadChildren: () => {
             return import('./demo/demo.module.module').then(m => m.DemoPageModuleModule)
           }
+        },
+        {
+          path: 'operation',
+          loadChildren: () => {
+            return import('./operation/operation-page.module.module').then(m => m.OperationPageModuleModule)
+          }
         }
+        
     ]
   },
 ];
