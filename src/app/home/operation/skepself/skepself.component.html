@@ -1,0 +1,13 @@
+<div class="section">
+	<h2>@Self() Component (without a provider)</h2>
+  <p>Flower: {{flower?.emoji}}</p>
+  <p>@SkipSelf() Leaf emoji: {{leaf?.emoji}}</p>
+  <p>Animal: {{animal?.emoji}}</p>
+  <div class="container">
+    <h3>Content projection</h3>
+      <ng-content></ng-content>
+  </div>
+  
+  <h3>Inside the view</h3>
+  <app-operation-host></app-operation-host>
+</div>

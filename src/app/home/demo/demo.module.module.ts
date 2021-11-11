@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/share/share.module';
 import { DrawerComponent } from './drawer/drawer.component';
 import { PopupComponent } from './popup/popup.component';
 import { TabPanelComponent } from './tab-panel/tab-panel.component';
+import { HtmlEditorComponent } from './html-editor/html-editor.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'tab-panel',
     component: TabPanelComponent,
+  },
+  {
+    path: 'html-editor',
+    component: HtmlEditorComponent
   }
 ];
 
@@ -29,13 +34,14 @@ const routes: Routes = [
   declarations: [
     DrawerComponent,
     PopupComponent,
-    TabPanelComponent
+    TabPanelComponent,
+    HtmlEditorComponent
   ],
   imports: [
     CommonModule,
     DxTextBoxModule,
     DxTextAreaModule,
-    SharedModule.forRoot(),
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })

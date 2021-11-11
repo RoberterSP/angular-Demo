@@ -41,7 +41,7 @@ const routes: Routes = [
     CommonModule,
     DxTextBoxModule,
     DxTextAreaModule,
-    SharedModule.forRoot(),
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })

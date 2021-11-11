@@ -5,10 +5,13 @@ import { DxTextBoxModule, DxTextAreaModule } from 'devextreme-angular';
 import { SharedModule } from 'src/app/share/share.module';
 import { DefineDependencyInjectorComponent } from './dependency-injector/define-dependency-injector/define-dependency-injector.component';
 import { InitDependencyInjectorComponent } from './dependency-injector/init-dependency-injector/init-dependency-injector.component';
+import { OperationMainComponent } from './main/main.component';
+import { OperationSkepselfComponent } from './skepself/skepself.component';
+import { OperationHostComponent } from './host/host.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'main'},
+  {path: '', redirectTo: 'DI-main'},
   {
     path: 'DI-define',
     component: DefineDependencyInjectorComponent,
@@ -17,18 +20,25 @@ const routes: Routes = [
     path: 'DI-init',
     component: InitDependencyInjectorComponent,
   },
+  {
+    path: 'DI-main',
+    component: OperationMainComponent,
+  },
 ];
 
 @NgModule({
   declarations: [
     DefineDependencyInjectorComponent,
-    InitDependencyInjectorComponent
+    InitDependencyInjectorComponent,
+    OperationMainComponent,
+    OperationSkepselfComponent,
+    OperationHostComponent
   ],
   imports: [
     CommonModule,
     DxTextBoxModule,
     DxTextAreaModule,
-    SharedModule.forRoot(),
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })
