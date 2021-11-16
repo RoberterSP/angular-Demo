@@ -8,6 +8,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { PopupComponent } from './popup/popup.component';
 import { TabPanelComponent } from './tab-panel/tab-panel.component';
 import { HtmlEditorComponent } from './html-editor/html-editor.component';
+import { FormComponent } from './form/form.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'html-editor',
     component: HtmlEditorComponent
+  },
+  {
+    path: 'form',
+    component: FormComponent
   }
 ];
 
@@ -35,7 +40,8 @@ const routes: Routes = [
     DrawerComponent,
     PopupComponent,
     TabPanelComponent,
-    HtmlEditorComponent
+    HtmlEditorComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
