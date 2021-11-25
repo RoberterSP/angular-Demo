@@ -26,8 +26,13 @@ const routes: Routes = [
           loadChildren: () => {
             return import('./operation/operation-page.module.module').then(m => m.OperationPageModuleModule)
           }
+        },
+        {
+          path: 'rxjs',
+          loadChildren: () => {
+            return import('./rxjs/rxjs/rxjs.module').then(m => m.RxjsModule)
+          }
         }
-        
     ]
   },
 ];
@@ -35,7 +40,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    
+
   ],
   imports: [
     SharedModule.forRoot(),
