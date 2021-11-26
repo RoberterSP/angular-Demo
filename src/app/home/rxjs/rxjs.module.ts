@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RxjsComponent } from './rxjs.component';
-import { ObserverComponent } from '../observer/observer/observer.component';
-import { OperatorsBasicComponent } from '../operators/basic/basic.component';
-import { ObserverableComponent } from '../observer/observerable/observerable.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { ObserverComponent } from './observer/observer/observer.component';
+import { OperatorsBasicComponent } from './operators/basic/basic.component';
+import { ObserverableComponent } from './observer/observerable/observerable.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/share/share.module';
+import { AppSearchBarComponent } from './app-search-bar/app-search-bar.component';
 const routes: Routes = [
   {path: '', redirectTo: 'observer'},
   {
@@ -19,7 +20,12 @@ const routes: Routes = [
   {
     path: 'operator',
     component: OperatorsBasicComponent,
-  }
+  },
+  {
+    path: 'search-bar',
+    component: AppSearchBarComponent,
+  },
+  
 ];
 @NgModule({
   imports: [
@@ -32,6 +38,7 @@ const routes: Routes = [
     ObserverComponent,
     ObserverableComponent,
     OperatorsBasicComponent,
+    AppSearchBarComponent,
   ]
 })
 export class RxjsModule { }

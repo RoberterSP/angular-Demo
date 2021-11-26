@@ -30,7 +30,7 @@ const routes: Routes = [
         {
           path: 'rxjs',
           loadChildren: () => {
-            return import('./rxjs/rxjs/rxjs.module').then(m => m.RxjsModule)
+            return import('./rxjs/rxjs.module').then(m => m.RxjsModule)
           }
         }
     ]
@@ -39,7 +39,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    HomeComponent
 
   ],
   imports: [
