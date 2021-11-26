@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Subject, Subscription, throttleTime } from 'rxjs';
+import * as _ from 'lodash';
+import { filter, map } from 'rxjs/operators';
+// input search
+// features: entry  delay(500)
 
 @Component({
   selector: 'app-app-search-bar',
@@ -6,10 +11,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-search-bar.component.scss']
 })
 export class AppSearchBarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() width:  string | number = 300
+  @Input() value: any
+  searchOption: any = {};
+  values$ = new Subject();
+  sub: Subscription;
+  
+  constructor() { 
+    this.onSearchInput = this.onSearchInput.bind(this)
   }
 
+  ngOnInit(): void {
+    this.searchOption = {
+      icon: 'search',
+      type: 'noraml',
+      stylingMode: 'text',
+      onClick: (e: any) => {
+        this.searchInput(e)
+      }
+    }
+    this.sub = this.values$.pipe(
+      debounceTime(1000),
+      // filter(n => _.toString(n) < 9 )
+      distinctUntilChanged()
+    ).subscribe((event) => {
+      this.enterKey(event)
+    })
+  }
+  enterKey(e: any) {
+    console.log(e)
+  }
+  ngOnDestroy() {
+    if (this.sub) this.sub.unsubscribe();
+  }
+  searchInput(e:any) {
+    console.log(e)
+
+  }
+  onSearchInput = (e: any) => {
+    this.values$.next(e.event.target.value);
+  };
 }

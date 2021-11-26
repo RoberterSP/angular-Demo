@@ -1,1 +1,16 @@
-<p>app-search-bar works!</p>
+
+<dx-text-box
+    [(value)]="value"
+    [width]="width"
+    placeholder="please enter ..."
+    stylingMode="filled"
+    (onInput)="onSearchInput($event)"
+    [elementAttr]="{ id: 'customId', class: 'search-input' }"
+    >
+    <dxi-button
+        name="today"
+        location="before"
+        [options]="searchOption"
+    ></dxi-button>
+    </dx-text-box>
+
