@@ -16,8 +16,8 @@ export class AppSearchBarComponent implements OnInit {
   searchOption: any = {};
   values$ = new Subject();
   sub: Subscription;
-  
-  constructor() { 
+
+  constructor() {
     this.onSearchInput = this.onSearchInput.bind(this)
   }
 
@@ -33,7 +33,7 @@ export class AppSearchBarComponent implements OnInit {
     this.sub = this.values$.pipe(
       debounceTime(1000),
       // filter(n => _.toString(n) < 9 )
-      distinctUntilChanged()
+      distinctUntilChanged() // 判断前一个值和后一个值是否重复
     ).subscribe((event) => {
       this.enterKey(event)
     })
