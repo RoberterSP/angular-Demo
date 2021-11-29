@@ -7,6 +7,7 @@ import { ObserverableComponent } from './observer/observerable/observerable.comp
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/share/share.module';
 import { AppSearchBarComponent } from './app-search-bar/app-search-bar.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 const routes: Routes = [
   {path: '', redirectTo: 'observer'},
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     ObserverableComponent,
     OperatorsBasicComponent,
     AppSearchBarComponent,
+    ProgressBarComponent,
   ]
 })
 export class RxjsModule { }
