@@ -1,0 +1,8 @@
+
+
+<div class="nav">
+  <div *ngFor="let item of extraMenu" class="nav-bar">
+    <a [routerLink]="item.path">{{item.name}}</a>
+  </div>
+</div>
+<router-outlet></router-outlet>

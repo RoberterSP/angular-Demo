@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DxScrollViewComponent, DxTextAreaComponent } from 'devextreme-angular';
+import { Service } from '../service/app.service';
 
 @Component({
   selector: 'app-form',
@@ -35,10 +36,13 @@ export class FormComponent implements OnInit {
       editorType: 'dxTextBox',
     }
   ]
-  constructor() { }
+  constructor(
+   public service: Service
+  ) { }
 
   ngOnInit(): void {
-    
+    console.log(this.service.drawName)
+
   }
   onKeyDown(e: any) {
     console.log(e)
@@ -58,7 +62,7 @@ export class FormComponent implements OnInit {
       setTimeout(() => {
         taht.textBox.instance.focus()
       }, 3000);
-      
+
     }, 3000);
   }
 

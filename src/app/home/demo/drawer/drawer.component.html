@@ -1,3 +1,6 @@
+<a (click)="goform($event)">go form page</a>
+<a routerLink="/tab-panel" routerLinkActive="active">go tab panel page</a>
+<dx-button type="default" text="change service data" (onClick)="changeServiceData()"></dx-button>
 <dx-toolbar [items]="toolbarContent"> </dx-toolbar>
 <dx-drawer
   [openedStateMode]="selectedOpenMode"

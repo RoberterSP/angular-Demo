@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Router } from '@angular/router';
 import {
   DxDrawerComponent, DxDrawerModule, DxListModule, DxRadioGroupModule, DxToolbarModule,
 } from 'devextreme-angular';
@@ -13,8 +14,6 @@ if (!/localhost/.test(document.location.host)) {
 }
 
 @Component({
-  providers: [Service],
-  preserveWhitespaces: true,
   selector: 'app-drawer',
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss']
@@ -42,12 +41,23 @@ export class DrawerComponent implements OnInit {
 
   elementAttr: any;
 
-  constructor(service: Service) {
+  constructor(
+    public service: Service,
+    public router: Router
+    ) {
     this.text = service.getContent();
     this.navigation = service.getNavigationList();
   }
+  goform(e: any) {
+    e.stopPropagation()
+    this.router.navigateByUrl('/home/demo/drawer/form')
 
+
+
+  }
   ngOnInit() {}
+  changeServiceData() {
+  }
 
   toolbarContent = [{
     widget: 'dxButton',

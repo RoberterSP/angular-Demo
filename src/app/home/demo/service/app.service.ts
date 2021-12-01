@@ -27,11 +27,15 @@ const text = `
 
 @Injectable()
 export class Service {
+  drawName: string;
   getNavigationList(): List[] {
     return navigation;
   }
 
   getContent(): string {
     return text;
+  }
+  init() {
+    this.drawName = 'change data'
   }
 }

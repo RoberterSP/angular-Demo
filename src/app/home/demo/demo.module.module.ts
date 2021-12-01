@@ -9,30 +9,38 @@ import { PopupComponent } from './popup/popup.component';
 import { TabPanelComponent } from './tab-panel/tab-panel.component';
 import { HtmlEditorComponent } from './html-editor/html-editor.component';
 import { FormComponent } from './form/form.component';
+import { LayoutCommonComponent } from './layout-common/layout-common.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'drawer'},
   {
-    path: 'drawer',
-    component: DrawerComponent,
+    path: '',
+    component: LayoutCommonComponent,
+    pathMatch: 'prefix',
+    children: [
+      {
+        path: 'drawer',
+        component: DrawerComponent,
+      },
+      {
+        path: 'form',
+        component: FormComponent
+      },
+      {
+        path: 'popup',
+        component: PopupComponent,
+      },
+      {
+        path: 'tab-panel',
+        component: TabPanelComponent,
+      },
+      {
+        path: 'html-editor',
+        component: HtmlEditorComponent
+      }
+    ]
   },
-  {
-    path: 'popup',
-    component: PopupComponent,
-  },
-  {
-    path: 'tab-panel',
-    component: TabPanelComponent,
-  },
-  {
-    path: 'html-editor',
-    component: HtmlEditorComponent
-  },
-  {
-    path: 'form',
-    component: FormComponent
-  }
 ];
 
 @NgModule({
@@ -41,6 +49,7 @@ const routes: Routes = [
     PopupComponent,
     TabPanelComponent,
     HtmlEditorComponent,
+    LayoutCommonComponent,
     FormComponent
   ],
   imports: [
