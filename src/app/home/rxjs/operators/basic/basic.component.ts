@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { fromEvent, map, filter, Subscription, distinct, from, distinctUntilChanged, debounceTime, throttleTime, startWith, scan, first, interval, retryWhen, tap, delayWhen, timer, concatMapTo, of, takeUntil, zip, withLatestFrom } from 'rxjs';
+import { fromEvent, map, filter, delay, Subscription, distinct, from, distinctUntilChanged, debounceTime, throttleTime, startWith, scan, first, interval, retryWhen, tap, delayWhen, timer, concatMapTo, of, takeUntil, zip, withLatestFrom, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-basic',
@@ -15,8 +15,77 @@ export class OperatorsBasicComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.timerFn()
+    this.switchMapFireBase()
   }
+  switchMapFireBase() {
+    const firebase1$ = this.simulateFirebase("csp", 5000);
+    const firebase2$ =  this.simulateFirebase("FB-2", 1000);
+
+    const firebaseResult$ = firebase1$.pipe(switchMap(sourceValue => {
+      console.log("source value " + sourceValue);
+      return sourceValue
+    }));
+    
+    firebaseResult$.subscribe(
+      () => console.log('completed firebaseResult$')
+    );
+
+    // firebase1$.subscribe(
+    //     console.log,
+    //     console.error,
+    //     () => console.log('firebase1$ completed')
+    // );
+
+    // firebase2$.subscribe(
+    //     console.log,
+    //     console.error,
+    //     () => console.log('firebase2$ completed')
+    // );
+  }
+  // understand switchMap operator, but why is this operator called swichMap? we might ask the following question:
+  // ~ what's  switch and map mean?
+  // switchMa: when the source emits a new value, it will creat a new inner observable and switch to those values instead.
+  switchMapFn() {
+    const http1$ = this.simulateHttp(1, 1000);
+    const http2$ = this.simulateHttp(2, 2000);
+    // http1$.subscribe(
+    //   val => console.log(val),
+    //   err => console.error(err),
+    //   () => {
+    //     console.log('this is http1 complete')
+    //   })
+    // http2$.subscribe(
+    //   val => console.log(val),
+    //   err => console.error(err),
+    //   () => {
+    //     console.log('this is http2 complete')
+    //   })
+    const saveUser$ = this.simulateHttp(" user saved ", 1000);
+
+    const httpResult$ = saveUser$.pipe(
+      switchMap(sourceValue => {
+        console.log(sourceValue);
+        return this.simulateHttp(" data reloaded ", 2000);
+      })
+    );
+
+    // httpResult$.subscribe(
+    //   console.log,
+    //   console.error,
+    //   () => console.log('completed httpResult$')
+    // );
+
+  }
+  simulateFirebase(val: any, delay: number) {
+    return interval(delay).pipe(map(index => val + " " + index));
+  }
+  // simulate http, to create an 'emit once and complete' stream, and delay operator to make it async, just like an HTTP request.
+  simulateHttp(val: any, delays: number) {
+    return of(val).pipe(
+      delay(delays)
+    );
+  }
+
   fromFn(arr: any = []) {
     from(['csp', 'csp1', 'aaaa', 'bbbb'])
       .pipe(
