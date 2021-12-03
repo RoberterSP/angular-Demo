@@ -24,6 +24,14 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'tab-panel',
       name: 'tabPanel'
+    },
+    {
+      path: 'defined-component-css',
+      name: 'definedComponentCss'
+    },
+    {
+      path: 'datagrid',
+      name: 'datagrid'
     }
   ]
   constructor(

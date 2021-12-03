@@ -1,8 +1,5 @@
 # RxJsDemo
-rxjs练习例
-RxJS最难我想就是各种operator的应用了，这需要一些经验的积累。
-
-RxJS很火很大原因我认还是提供了丰富的API，以下是摘抄：
+rxjs practice：
 
 创建数据流：
 
