@@ -1,11 +1,11 @@
 {
   "name": "angular-demo",
-  "version": "0.0.0",
+  "version": "0.0.0-01",
   "scripts": {
     "ng": "ng",
     "npx": "husky install",
     "start": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve --port 4200",
-    "build": "node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng build --prod --output-path=docs",
+    "build": "npm version prerelease && node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng build --prod --output-path=docs",
     "reduce-build": "ng build --stats-json",
     "watch": "ng build --watch --configuration development"
   },
@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "angular-in-memory-web-api": "0.11.0",
     "@types/lodash": "^4.14.165",
     "devextreme": "^21.2.3",
     "devextreme-angular": "^21.2.3",

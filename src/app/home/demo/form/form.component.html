@@ -79,6 +79,26 @@
 
 </dx-scroll-view> -->
 <a routerLink="/drawer" routerLinkActive="active">go form page</a>
+<dx-form id="form" [formData]="employee" [colCount]="2" class="txt-form" [showColonAfterLabel]="true"
+[alignItemLabels]="false" [readOnly]="true">
+    <dxi-item itemType="group" caption="System Information">
+      <dxi-item dataField="ID"></dxi-item>
+      <dxi-item dataField="FirstName"></dxi-item>
+      <dxi-item dataField="LastName"></dxi-item>
+      <dxi-item dataField="HireDate"></dxi-item>
+      <dxi-item dataField="Position"></dxi-item>
+      <dxi-item dataField="OfficeNo"></dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" caption="Personal Data">
+      <dxi-item dataField="BirthDate"></dxi-item>
+      <dxi-item itemType="group" caption="Home Address">
+        <dxi-item dataField="Address"></dxi-item>
+        <dxi-item dataField="City"></dxi-item>
+        <dxi-item dataField="State"></dxi-item>
+        <dxi-item dataField="Zipcode"></dxi-item>
+      </dxi-item>
+    </dxi-item>
+  </dx-form>
 
 
 

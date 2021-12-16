@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
   @ViewChild(DxScrollViewComponent, { static: false }) scrollView: DxScrollViewComponent;
 
   formData: any = {}
+  employee = {}
   items=[
     {
       dataField: 'SOO1',
@@ -38,7 +39,9 @@ export class FormComponent implements OnInit {
   ]
   constructor(
    public service: Service
-  ) { }
+  ) { 
+    this.employee = service.getEmployee();
+  }
 
   ngOnInit(): void {
     console.log(this.service.drawName)
@@ -53,17 +56,17 @@ export class FormComponent implements OnInit {
     // e.event.stopPropagation();
   }
   ngAfterViewInit() {
-    const taht = this
-    setTimeout(() => {
-      taht.scrollView.instance.scrollTo({
-        left: 0,
-        top: this.scrollView.instance.scrollHeight(),
-      });
-      setTimeout(() => {
-        taht.textBox.instance.focus()
-      }, 3000);
+    // const taht = this
+    // setTimeout(() => {
+    //   taht.scrollView.instance.scrollTo({
+    //     left: 0,
+    //     top: this.scrollView.instance.scrollHeight(),
+    //   });
+    //   setTimeout(() => {
+    //     taht.textBox.instance.focus()
+    //   }, 3000);
 
-    }, 3000);
+    // }, 3000);
   }
 
 }

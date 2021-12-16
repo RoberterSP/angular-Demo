@@ -32,6 +32,10 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'datagrid',
       name: 'datagrid'
+    },
+    {
+      path: 'httpclient',
+      name: 'httpclient'
     }
   ]
   constructor(

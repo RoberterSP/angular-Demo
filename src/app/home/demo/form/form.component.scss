@@ -1,0 +1,25 @@
+// 纯文本无表单边框的Form展示,需要设置 form 的 readonly 值
+.txt-form {
+    margin-top: 0px;
+    .dx-texteditor.dx-editor-outlined {
+      border: none;
+    }
+    .dx-placeholder {
+      display: none;
+    }
+    label {
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+    .dx-field-item-help-text,
+    .dx-field-item-label-text {
+      color: #999;
+    }
+    .dx-texteditor-input {
+      min-height: 24px;
+      padding: 0;
+    }
+    .dx-layout-manager .dx-field-item:not(.dx-first-row) {
+      padding-top: 0;
+    }
+  }

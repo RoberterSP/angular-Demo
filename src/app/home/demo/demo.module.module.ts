@@ -12,6 +12,13 @@ import { FormComponent } from './form/form.component';
 import { LayoutCommonComponent } from './layout-common/layout-common.component';
 import { DefinedComponentCssComponent } from './defined-component-css/defined-component-css.component';
 import { DemoDatagridComponent } from './datagrid/datagrid.component';
+import { DemoHttpClientComponent } from './http-demo/http-client/http-client.component';
+import { ConfigComponent } from './http-demo/config/config.component';
+import { DownloaderComponent } from './http-demo/downloader/downloader.component';
+import { MessagesComponent } from './http-demo/messages/messages.component';
+import { PackageSearchComponent } from './http-demo/package-search/package-search.component';
+import { HeroesComponent } from './http-demo/heroes/heroes.component';
+import { UploaderComponent } from './http-demo/uploader/uploader.component';
 
 
 const routes: Routes = [
@@ -48,6 +55,10 @@ const routes: Routes = [
        {
          path: 'datagrid',
          component: DemoDatagridComponent
+       },
+       {
+         path: 'httpclient',
+         component: DemoHttpClientComponent
        }
     ]
   },
@@ -62,7 +73,14 @@ const routes: Routes = [
     LayoutCommonComponent,
     FormComponent,
     DefinedComponentCssComponent,
-    DemoDatagridComponent
+    DemoDatagridComponent,
+    DemoHttpClientComponent,
+    ConfigComponent,
+    DownloaderComponent,
+    HeroesComponent,
+    MessagesComponent,
+    UploaderComponent,
+    PackageSearchComponent,
   ],
   imports: [
     CommonModule,
