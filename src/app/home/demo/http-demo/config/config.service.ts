@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment';
+import { toBase64 } from 'src/app/share/utils/basic.tool';
 export interface Config {
   heroesUrl: string;
   textfile: string;
   date: any;
 }
-
+// Put Account in the header
+const name = 'admintest@mcttechnology.com'
+const password = 'ztan134524'
+const base64Params = toBase64(`${name}:${password}`);
+const authorization = `Basic ${base64Params}`;
+const httpOptions = {
+  headers: new HttpHeaders({
+    Authorization: authorization,
+    'Content-Type':  'application/json',
+    'X-Param-Override-CustomerCode': environment.customerCode,
+    'X-CC-AppId': environment.app_id,
+  })
+};
 @Injectable()
 export class ConfigService {
   configUrl = 'assets/config.json';
+  // 获取环境变量的 url 配置信息
+  private readonly api_url = environment.url;
+  private readonly custom = environment.customerCode;
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +40,20 @@ export class ConfigService {
         catchError(this.handleError) // then handle the error
       );
   }
+    /** POST: add a new hero to the database */
+    get_auth(hero: any) {
+       this.http.post<any>(`${this.api_url}cc_auth`, hero, httpOptions)
+        .pipe(
+          catchError(this.handleError)
+        ).subscribe(r => {
+          if (!r.Token) {
+            this.get_auth({
+              Provider: 'appverify'
+            })
+          }
+          
+        })
+    }
 
   getConfig_1() {
     return this.http.get<Config>(this.configUrl);

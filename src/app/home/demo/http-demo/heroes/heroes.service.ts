@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { HttpErrorHandler, HandleError } from 'src/app/auth/http-error-handler.service';
-
+import { toBase64 } from 'src/app/share/utils/basic.tool';
+import { environment } from 'src/environments/environment';
+// Put Account in the header
+const name = 'admintest@mcttechnology.com'
+const password = 'ztan134524'
+const base64Params = toBase64(`${name}:${password}`);
+const authorization = `Basic ${base64Params}`;
 const httpOptions = {
   headers: new HttpHeaders({
+    Authorization: authorization,
     'Content-Type':  'application/json',
-    Authorization: 'my-auth-token'
+    'X-Param-Override-CustomerCode': environment.customerCode,
+    'X-CC-AppId': environment.app_id,
   })
 };
 
 @Injectable()
 export class HeroesService {
-  heroesUrl = 'api/heroes';  // URL to web api
+  base_url = 'api/heroes';  // URL to web api
   private handleError: HandleError;
 
   constructor(
@@ -29,7 +35,7 @@ export class HeroesService {
 
   /** GET heroes from the server */
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+    return this.http.get<Hero[]>(this.base_url)
       .pipe(
         catchError(this.handleError('getHeroes', []))
       );
@@ -43,7 +49,7 @@ export class HeroesService {
     const options = term ?
      { params: new HttpParams().set('name', term) } : {};
 
-    return this.http.get<Hero[]>(this.heroesUrl, options)
+    return this.http.get<Hero[]>(this.base_url, options)
       .pipe(
         catchError(this.handleError<Hero[]>('searchHeroes', []))
       );
@@ -52,16 +58,16 @@ export class HeroesService {
   //////// Save methods //////////
 
   /** POST: add a new hero to the database */
-  addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+  addHero(body: any): Observable<any> {
+    return this.http.post<any>(this.base_url, body, httpOptions)
       .pipe(
-        catchError(this.handleError('addHero', hero))
+        catchError(this.handleError('addHero', body))
       );
   }
 
   /** DELETE: delete the hero from the server */
   deleteHero(id: number): Observable<unknown> {
-    const url = `${this.heroesUrl}/${id}`; // DELETE api/heroes/42
+    const url = `${this.base_url}/${id}`; // DELETE api/heroes/42
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError('deleteHero'))
@@ -70,10 +76,10 @@ export class HeroesService {
 
   /** PUT: update the hero on the server. Returns the updated hero upon success. */
   updateHero(hero: Hero): Observable<Hero> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
+    // httpOptions.headers =
+    //   httpOptions.headers.set('Authorization', 'my-new-auth-token');
 
-    return this.http.put<Hero>(this.heroesUrl, hero, httpOptions)
+    return this.http.put<Hero>(this.base_url, hero, httpOptions)
       .pipe(
         catchError(this.handleError('updateHero', hero))
       );

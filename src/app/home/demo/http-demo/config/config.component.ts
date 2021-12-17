@@ -27,7 +27,21 @@ export class ConfigComponent {
         error => this.error = error // error path
       );
   }
-
+  showConfigAuth() {
+    this.configService.get_auth(
+      {
+        Idp: 'cc4',
+        Meta: {
+          CustomerCode: 'Dev'
+        },
+        Provider: 'base'
+      }
+    )
+      .subscribe(
+        (data: any) => this.config = { ...data }, // success path
+        error => this.error = error // error path
+      );
+  }
   showConfig_v1() {
     this.configService.getConfig_1()
       .subscribe((data: Config) => this.config = {

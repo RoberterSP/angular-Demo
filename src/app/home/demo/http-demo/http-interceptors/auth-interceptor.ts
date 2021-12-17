@@ -12,7 +12,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
-    const authToken = this.auth.getAuthorizationToken();
+    const authorization = this.auth.getAuthorizationToken();
+    const token = this.auth.getApiToken();
 
     /*
     * The verbose way:
@@ -23,7 +24,9 @@ export class AuthInterceptor implements HttpInterceptor {
     });
     */
     // Clone the request and set the new header in one step.
-    const authReq = req.clone({ setHeaders: { Authorization: authToken } });
+    const authReq = req.clone({ setHeaders: { 
+      Authorization: authorization
+    } });
 
     // send cloned request with header to the next handler.
     return next.handle(authReq);
