@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 
   }
   sub!: Subscription;
+  number: number;
   constructor(
     private resolver: ComponentFactoryResolver,
     private service: RenderService,
@@ -36,6 +37,7 @@ export class MainComponent implements OnInit {
       }
     })
   }
+  
   next() {
     this.renderpage(RenderPage.Second)
 

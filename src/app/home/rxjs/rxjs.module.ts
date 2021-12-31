@@ -19,6 +19,10 @@ const routes: Routes = [
     component: ObserverComponent,
   },
   {
+    path: 'obser-new',
+    component: ObserverableComponent,
+  },
+  {
     path: 'operator',
     component: OperatorsBasicComponent,
   },

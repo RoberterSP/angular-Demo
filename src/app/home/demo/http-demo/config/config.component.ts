@@ -37,10 +37,6 @@ export class ConfigComponent {
         Provider: 'base'
       }
     )
-      .subscribe(
-        (data: any) => this.config = { ...data }, // success path
-        error => this.error = error // error path
-      );
   }
   showConfig_v1() {
     this.configService.getConfig_1()

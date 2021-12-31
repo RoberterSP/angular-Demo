@@ -3,10 +3,11 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   DxDrawerComponent, DxDrawerModule, DxListModule, DxRadioGroupModule, DxToolbarModule,
 } from 'devextreme-angular';
+import { Observable, observable, Subject } from 'rxjs';
 import { List, Service } from './../service/app.service';
 
 if (!/localhost/.test(document.location.host)) {
@@ -41,8 +42,11 @@ export class DrawerComponent implements OnInit {
 
   elementAttr: any;
 
+  dataUpdate1 = new Subject();
+
   constructor(
     public service: Service,
+    public activatedRoute: ActivatedRoute,
     public router: Router
     ) {
     this.text = service.getContent();
@@ -50,12 +54,23 @@ export class DrawerComponent implements OnInit {
   }
   goform(e: any) {
     e.stopPropagation()
-    this.router.navigateByUrl('/home/demo/drawer/form')
-
-
-
+    const arr = [
+      {
+        id:1,
+        name: 'name'
+      },
+      {
+        id:2,
+        name: 'name2'
+      }
+    ]
+    this.router.navigateByUrl('/home/demo/form', { state:  {data: { arr: arr } }});
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataUpdate1.next({
+      falg: 1
+    })
+  }
   changeServiceData() {
   }
 

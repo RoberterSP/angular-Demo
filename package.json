@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "npx": "husky install",
-    "start": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve --port 4201",
+    "start": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve --port 4200",
     "build": "npm version prerelease && node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng build --prod --output-path=docs",
     "reduce-build": "ng build --stats-json",
     "watch": "ng build --watch --configuration development"

@@ -42,7 +42,7 @@ export class ConfigService {
   }
     /** POST: add a new hero to the database */
     get_auth(hero: any) {
-       this.http.post<any>(`${this.api_url}cc_auth`, hero, httpOptions)
+      this.http.post<any>(`${this.api_url}cc_auth`, hero, httpOptions)
         .pipe(
           catchError(this.handleError)
         ).subscribe(r => {
