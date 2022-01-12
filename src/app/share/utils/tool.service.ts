@@ -59,18 +59,7 @@ export class ToolService {
     }
     return str;
   }
-  public static setValue(key: string, value, form, formData) {
-    form.updateData(key, value);
-  }
-  public static setDisable(key: string, disabled: boolean = true, form) {
-    setTimeout(() => {
-      const op = form.itemOption(key);
-      if (op) {
-        _.set(op, 'editorOptions.disabled', disabled);
-        form.itemOption(key, 'editorOptions', _.get(form.itemOption(key), 'editorOptions'));
-      }
-    }, 60);
-  }
+ 
 
   public static setAddress(event, formData, type?: string) {
     if (event.component) {
