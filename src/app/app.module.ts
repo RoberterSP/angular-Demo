@@ -16,6 +16,8 @@ import { HttpErrorHandler } from './auth/http-error-handler.service';
 import { MessageService } from './auth/message.service';
 import { RequestCache, RequestCacheWithMap } from './auth/request-cache.service';
 import { httpInterceptorProviders } from './home/demo/http-demo/http-interceptors';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -61,7 +63,13 @@ const routes: Routes = [
         passThruUnknownUrl: true,
         put204: false // return entity after PUT/update
       }
-    )
+    ),
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: environment.production,
+        // Register the ServiceWorker as soon as the app is stable
+        // or after 30 seconds (whichever comes first).
+        registrationStrategy: 'registerWhenStable:30000'
+      })
   ],
   providers: [
     AuthService,
