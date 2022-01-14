@@ -8,6 +8,7 @@ import {
   DxDrawerComponent, DxDrawerModule, DxListModule, DxRadioGroupModule, DxToolbarModule,
 } from 'devextreme-angular';
 import { Observable, observable, Subject } from 'rxjs';
+import { ToolService } from 'src/app/share/utils/tool.service';
 import { List, Service } from './../service/app.service';
 
 if (!/localhost/.test(document.location.host)) {
@@ -44,6 +45,14 @@ export class DrawerComponent implements OnInit {
 
   dataUpdate1 = new Subject();
 
+  arr = [
+    {id: 1, name: '部门1', pid: 0},
+    {id: 2, name: '部门2', pid: 1},
+    {id: 3, name: '部门3', pid: 1},
+    {id: 4, name: '部门4', pid: 3},
+    {id: 5, name: '部门5', pid: 4},
+  ]
+
   constructor(
     public service: Service,
     public activatedRoute: ActivatedRoute,
@@ -70,6 +79,7 @@ export class DrawerComponent implements OnInit {
     this.dataUpdate1.next({
       falg: 1
     })
+    console.log(ToolService.ArrayToTree(this.arr))
   }
   changeServiceData() {
   }
