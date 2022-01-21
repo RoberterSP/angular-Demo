@@ -22,6 +22,7 @@ export class FirstComponent implements OnInit {
   employee: any = {};
   positions: any = []
   rules = { 'X': /[02-9]/ };
+  map = new Map();
   options = {
     icon: 'check',
     text: 'save',
@@ -62,7 +63,21 @@ export class FirstComponent implements OnInit {
       return isValid;
   };
 
+  mapFn = () => {
+    this.map.set('first', 'first-value')
+    this.map.set('second', 'second-value')
+    if(this.map.has('first')) {
+      console.log(this.map.size)
+      this.map.set('first', [])
+      this.map.forEach((value, key, arr) => {
+        console.log(value, key, arr, 'this is callbackFn')
+      })
+    }
+    console.log(this.map)
+  }
+
   ngOnInit(): void {
+    this.mapFn()
     // observable abstract
     const observable = new Observable(subscriber => {
       subscriber.next(1);

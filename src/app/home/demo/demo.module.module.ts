@@ -19,6 +19,7 @@ import { MessagesComponent } from './http-demo/messages/messages.component';
 import { PackageSearchComponent } from './http-demo/package-search/package-search.component';
 import { HeroesComponent } from './http-demo/heroes/heroes.component';
 import { UploaderComponent } from './http-demo/uploader/uploader.component';
+import { DemoChartComponent } from './chart/chart.component';
 
 
 const routes: Routes = [
@@ -59,6 +60,10 @@ const routes: Routes = [
        {
          path: 'httpclient',
          component: DemoHttpClientComponent
+       },
+       {
+         path: 'chart',
+         component: DemoChartComponent
        }
     ]
   },
@@ -81,6 +86,7 @@ const routes: Routes = [
     MessagesComponent,
     UploaderComponent,
     PackageSearchComponent,
+    DemoChartComponent,
   ],
   imports: [
     CommonModule,

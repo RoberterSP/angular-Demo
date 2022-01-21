@@ -36,6 +36,10 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'httpclient',
       name: 'httpclient'
+    },
+    {
+      path: 'chart',
+      name: 'chart'
     }
   ]
   constructor(
