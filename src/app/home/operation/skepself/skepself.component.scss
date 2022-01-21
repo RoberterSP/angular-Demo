@@ -1,0 +1,7 @@
+.container-box {
+    box-shadow: 6px 4px 5px 2px #eee;
+    border: 1px solid #eee;
+}
+:host ::ng-deep p {
+    font-style: italic;
+  }

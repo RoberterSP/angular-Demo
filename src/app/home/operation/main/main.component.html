@@ -1,11 +1,21 @@
 <h1>DI resolution modifiers</h1>
 
 <p>Basic flower service: {{flower.emoji}}</p>
-<p>Basic leaf service: {{leaf.emoji}}</p>
+<p>Basic leaf service: {{leaf.emoji}}   {{leaf.extend}}</p>
 <p>Basic animal service: {{animal.emoji}}</p>
+
+<hr/>
+<div (click)="click()">click</div>
+<!-- 当条件为真时复写元素,用 *ngFor 的 trackBy 跟踪条目, 避免重复渲染DOM 结构 -->
+<p *ngFor="let item of arr; let i = index; trackBy: trackByItems">{{item?.Id}} >>>> {{i}} ----------- {{item?.Name}}</p>
+
+<hr/>
 
 
 <app-operation-skepself>
-    <app-operation-host></app-operation-host>
+    this is define content, 类似于插槽  slot
+    <p question>this is question</p>
+    <p question1>this is question1</p>
+    <!-- <app-operation-host></app-operation-host> -->
 </app-operation-skepself>
 

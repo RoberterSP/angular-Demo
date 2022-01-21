@@ -1,11 +1,14 @@
 <div class="section">
 	<h2>@Self() Component (without a provider)</h2>
   <p>Flower: {{flower?.emoji}}</p>
-  <p>@SkipSelf() Leaf emoji: {{leaf?.emoji}}</p>
+  <p>@SkipSelf() Leaf emoji: {{leaf?.emoji}} {{leaf?.extend}}</p>
   <p>Animal: {{animal?.emoji}}</p>
-  <div class="container">
+  <div class="container-box">
     <h3>Content projection</h3>
       <ng-content></ng-content>
+      <ng-content select="[question1]"></ng-content>
+      <div>--------------</div>
+      <ng-content select="[question]"></ng-content>
   </div>
   
   <h3>Inside the view</h3>
