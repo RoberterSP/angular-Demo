@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AdComponent } from '../dynamic/ad.component';
 
 @Component({
   selector: 'app-tab-panel',
   templateUrl: './tab-panel.component.html',
   styleUrls: ['./tab-panel.component.scss']
 })
-export class TabPanelComponent implements OnInit {
+export class TabPanelComponent implements AdComponent, OnInit {
+  @Input() data: any;
   longtabs = [
     { text: 'user' },
     { text: 'analytics' },

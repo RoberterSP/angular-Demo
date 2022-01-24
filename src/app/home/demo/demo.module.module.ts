@@ -20,6 +20,9 @@ import { PackageSearchComponent } from './http-demo/package-search/package-searc
 import { HeroesComponent } from './http-demo/heroes/heroes.component';
 import { UploaderComponent } from './http-demo/uploader/uploader.component';
 import { DemoChartComponent } from './chart/chart.component';
+import { DynamicComponentComponent } from './dynamic/dynamic-component/dynamic-component.component';
+import { AppDynamicBannerComponent } from './dynamic/dynamic-component/dynamic-layout-component';
+import { AdDirective } from './dynamic/ad.directive';
 
 
 const routes: Routes = [
@@ -64,6 +67,10 @@ const routes: Routes = [
        {
          path: 'chart',
          component: DemoChartComponent
+       },
+       {
+         path: 'dynamic',
+         component: AppDynamicBannerComponent
        }
     ]
   },
@@ -87,6 +94,9 @@ const routes: Routes = [
     UploaderComponent,
     PackageSearchComponent,
     DemoChartComponent,
+    DynamicComponentComponent,
+    AppDynamicBannerComponent,
+    AdDirective,
   ],
   imports: [
     CommonModule,
