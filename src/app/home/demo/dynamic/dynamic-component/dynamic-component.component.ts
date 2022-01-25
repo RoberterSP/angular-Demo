@@ -5,10 +5,18 @@ import { AdDirective } from '../ad.directive';
 
 @Component({
   selector: 'app-demo-dynamic-banner',
-  templateUrl: './dynamic-component.component.html',
-  styleUrls: ['./dynamic-component.component.scss']
+  template: `
+    <div class="ad-banner-example">
+      <h3>Advertisements</h3>
+      <ng-template>333333333333</ng-template>
+      5555555555
+      <ng-template adHost [defaultValue]="defaultValue"></ng-template>
+    </div>
+  `
 })
 export class DynamicComponentComponent implements OnInit, OnDestroy {
+
+  defaultValue: string;
 
   @Input() ads: AdItem[] = [];
 
@@ -23,6 +31,7 @@ export class DynamicComponentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.defaultValue = 'ceshi'
     this.loadComponent();
     this.getAds();
   }

@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
+import { AdComponent } from '../dynamic/ad.component';
 import { Service } from './../service/app.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { Service } from './../service/app.service';
   templateUrl: 'chart.component.html',
   styleUrls: ['chart.component.scss']
 })
-export class DemoChartComponent implements AfterViewInit {
+export class DemoChartComponent implements AdComponent, AfterViewInit {
+  @Input() data: any;
   @ViewChild(DxChartComponent, { static: false }) charts: DxChartComponent;
   grossProductData: any[];
   constructor(
