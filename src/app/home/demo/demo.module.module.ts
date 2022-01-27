@@ -19,10 +19,11 @@ import { MessagesComponent } from './http-demo/messages/messages.component';
 import { PackageSearchComponent } from './http-demo/package-search/package-search.component';
 import { HeroesComponent } from './http-demo/heroes/heroes.component';
 import { UploaderComponent } from './http-demo/uploader/uploader.component';
-import { DemoChartComponent } from './chart/chart.component';
+import { DemoBarChartComponent } from './chart/chart.component';
 import { DynamicComponentComponent } from './dynamic/dynamic-component/dynamic-component.component';
 import { AppDynamicBannerComponent } from './dynamic/dynamic-component/dynamic-layout-component';
 import { AdDirective } from './dynamic/ad.directive';
+import { DemoPieChartComponent } from './chart/pie.component';
 
 
 const routes: Routes = [
@@ -66,11 +67,15 @@ const routes: Routes = [
        },
        {
          path: 'chart',
-         component: DemoChartComponent
+         component: DemoBarChartComponent
        },
        {
          path: 'dynamic',
          component: AppDynamicBannerComponent
+       },
+       {
+         path: 'pie',
+         component: DemoPieChartComponent
        }
     ]
   },
@@ -93,9 +98,10 @@ const routes: Routes = [
     MessagesComponent,
     UploaderComponent,
     PackageSearchComponent,
-    DemoChartComponent,
+    DemoBarChartComponent,
     DynamicComponentComponent,
     AppDynamicBannerComponent,
+    DemoPieChartComponent,
     AdDirective,
   ],
   imports: [
