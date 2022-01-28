@@ -439,6 +439,8 @@ export class GrossProduct {
   year2017: number;
 
   year2018: number;
+  params?: any;
+
 }
 
 const grossProductData: GrossProduct[] = [{
@@ -446,6 +448,10 @@ const grossProductData: GrossProduct[] = [{
   year2016: 803,
   year2017: 823,
   year2018: 863,
+  params: {
+    Disable: true,
+    Contractid: 1040
+  }
 }, {
   state: 'Indiana',
   year2016: 316,
@@ -471,11 +477,17 @@ export class MedalsInfo {
   country: string;
 
   medals: number;
+
+  params?: any;
 }
 
 const medals: MedalsInfo[] = [{
   country: 'USA',
   medals: 110,
+  params: {
+    Disable: true,
+    Contractid: 1040
+  }
 }, {
   country: 'China',
   medals: 100,

@@ -5,7 +5,8 @@ import { Service } from '../service/app.service';
 @Component({
   selector: 'app-pie-chart',
   template: `
-    <dx-pie-chart></dx-pie-chart>
+    <dx-pie-chart
+    ></dx-pie-chart>
   `
 })
 export class DemoPieChartComponent implements  AfterViewInit {
@@ -17,9 +18,7 @@ export class DemoPieChartComponent implements  AfterViewInit {
   ) {
     this.olympicMedals = service.getMedalsData();
   }
-  onPointClick(e: any) {
-    e.target.select();
-  }
+
   initOption = () => {
 
   }
@@ -27,6 +26,9 @@ export class DemoPieChartComponent implements  AfterViewInit {
     return `${arg.valueText} (${arg.percentText})`;
   }
   ngAfterViewInit(): void {
+    this.charts.onPointClick.subscribe(arg => {
+      console.log(arg.target.data)
+    })
     this.charts.instance.option({
       size: {
         height: 800,

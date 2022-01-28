@@ -28,6 +28,9 @@ export class DemoBarChartComponent implements AdComponent,  AfterViewInit {
   initOption = () => {
   }
   ngAfterViewInit(): void {
+    this.charts.onPointClick.subscribe(arg => {
+      console.log(arg.target.data)
+    })
     this.charts.instance.option({
       title: {
         text: 'Gross State Product within the Great Lakes Region 1',

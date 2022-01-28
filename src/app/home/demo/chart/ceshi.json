@@ -1,0 +1,37 @@
+[{
+  "Name36": {
+    "value": 2,
+    "params": {
+      "Disable": true,
+      "Contractid": 36
+    }
+  },
+  "Name1040": {
+    "value": 9,
+    "params": {
+      "Disable": true,
+      "Contractid": 1040
+    }
+  },
+  "CAPP": {
+    "value": 16,
+    "params": {
+      "Disable": true,
+      "Contractid": 1042
+    }
+  },
+  "CCDFP": {
+    "value": 17,
+    "params": {
+      "Disable": true,
+      "Contractid": 1041
+    }
+  },
+  "Sponsored": {
+    "value": 62,
+    "params": {
+      "Disable": true,
+      "Contractid": 40
+    }
+  }
+}]
