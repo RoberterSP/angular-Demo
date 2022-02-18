@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
+import * as _ from 'lodash';
 import { AdComponent } from '../dynamic/ad.component';
 import { Service } from './../service/app.service';
 // 234234
@@ -22,6 +23,11 @@ export class DemoBarChartComponent implements AdComponent,  AfterViewInit {
   ) {
     this.grossProductData = service.getGrossProductData();
   }
+
+
+
+
+
   onPointClick(e: any) {
     e.target.select();
   }
@@ -31,7 +37,186 @@ export class DemoBarChartComponent implements AdComponent,  AfterViewInit {
     this.charts.onPointClick.subscribe(arg => {
       console.log(arg.target.data)
     })
-    this.charts.instance.option({
+    const state = ['Authorized', 'Denied', 'New', 'Processed', 'Printed', 'QA', 'Received', 'Returned', 'Processor Hold']
+    const series = _.map(state, item => {
+      return {
+        valueField: item,
+        name: item,
+        label: {
+          font: {
+            size: 10,
+            color: 'yellow'
+          }
+        }
+      }
+    })
+    const opt = 
+    {
+      // "editorType": "dxChart",
+      // "dataField": "value",
+      // "label": {
+      //     "text": "Family By Program",
+      //     "visible": true
+      // },
+      // "editorOptions": {},
+      // "name": "value",
+      // "helpText": "",
+      "legend": {
+          "itemTextPosition": "right",
+          "columnCount": 4,
+          "orientation": "horizontal",
+          "verticalAlignment": "bottom",
+          "horizontalAlignment": "center",
+          "visible": true
+      },
+      "commonSeriesSettings": {
+          "type": "bar",
+          "argumentField": "Month"
+      },
+      "series": [
+          {
+              "valueField": "New",
+              "name": "New"
+          },
+          {
+              "valueField": "Printed",
+
+              "name": "Printed"
+          },
+          {
+              "valueField": "Received",
+
+              "name": "Received"
+          },
+          {
+              "valueField": "Authorized",
+
+              "name": "Authorized"
+          },
+          {
+              "valueField": "Processed",
+
+              "name": "Processed"
+          },
+          {
+              "valueField": "QA",
+
+              "name": "QA"
+          },
+          {
+              "valueField": "Processor Hold",
+
+              "name": "Processor Hold"
+          },
+          {
+              "valueField": "Returned",
+   
+              "name": "Returned"
+          },
+          {
+              "valueField": "Denied",
+          
+              "name": "Denied"
+          },
+          {
+              "valueField": "Voided",
+              "name": "Voided"
+          }
+      ],
+      // "visible": true,
+      // "isRequired": false,
+      // "argumentField": "name",
+      // "visibleInde x": 0,
+      // "Url": "/family/queue/family",
+      // "CustomTitle": {
+      //     "title": "Month",
+      //     "type": "date",
+      //     "format": "MM/yyyy"
+      // }
+  }
+  this.charts.instance.option(
+
+    {
+      "legend": {
+          "itemTextPosition": "right",
+          "columnCount": 4,
+          "orientation": "horizontal",
+          "verticalAlignment": "bottom",
+          "horizontalAlignment": "center",
+          "visible": true
+      },
+      "commonSeriesSettings": {
+          "type": "bar",
+          "argumentField": "Month"
+      },
+      "series": [
+          {
+              "valueField": "New",
+              "label": {
+                  "visible": true
+              },
+              "name": "New"
+          },
+          {
+              "valueField": "Printed",
+              "label": {
+                  "visible": true
+              },
+              "name": "Printed"
+          },
+          {
+              "valueField": "Received",
+              "label": {
+                  "visible": true
+              },
+              "name": "Received"
+          },
+          {
+              "valueField": "Authorized",
+              "label": {
+                  "visible": true
+              },
+              "name": "Authorized"
+          },
+          {
+              "valueField": "Processed",
+              "label": {
+                  "visible": true
+              },
+              "name": "Processed"
+          },
+          {
+              "valueField": "QA",
+              "label": {
+                  "visible": true
+              },
+              "name": "QA"
+          },
+          {
+              "valueField": "Processor Hold",
+              "label": {
+                  "visible": true
+              },
+              "name": "Processor Hold"
+          },
+          {
+              "valueField": "Returned",
+              "label": {
+                  "visible": true
+              },
+              "name": "Returned"
+          },
+          {
+              "valueField": "Denied",
+              "label": {
+                  "visible": true
+              },
+              "name": "Denied"
+          }
+      ]
+  })
+
+  const opts = {
       title: {
         text: 'Gross State Product within the Great Lakes Region 1',
         textOverflow: 'ellipsis',
@@ -57,50 +242,7 @@ export class DemoBarChartComponent implements AdComponent,  AfterViewInit {
         }
       },
       rotated: false,
-      series: [
-        {
-          valueField: 'year2018',
-          name: '2018',
-          label: {
-            font: {
-              size: 10,
-              color: 'yellow'
-            },
-            customizeText: (pointInfo: any) => {
-              return `${pointInfo.valueText} this is ceshi`
-            },
-            rotationAngle: 75
-          }
-        },
-        {
-          valueField: 'year2017',
-          name: '2017',
-          label: {
-            font: {
-              size: 12,
-              color: 'green'
-            },
-            customizeText: (pointInfo: any) => {
-              return `${pointInfo.valueText} this is ceshi`
-            },
-            rotationAngle: 75
-          }
-        },
-        {
-          valueField: 'year2016',
-          name: '2016',
-          label: {
-            font: {
-              size: 14,
-              color: 'red'
-            },
-            customizeText: (pointInfo: any) => {
-              return `${pointInfo.valueText} this is ceshi`
-            },
-            rotationAngle: 75
-          }
-        }
-      ],
+      series: series,
       scrollBar: {
         visible: true,
       },
@@ -129,9 +271,8 @@ export class DemoBarChartComponent implements AdComponent,  AfterViewInit {
           }
         }
       }
-
-      
-    })
+    }
+    // this.charts.instance.option(opts)
     // for (const key in parmas) {
     //   this.charts.instance.option({
     //     [key]: parmas[key]

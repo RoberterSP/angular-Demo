@@ -417,8 +417,7 @@ const text = `
 const employee = {
   ID: 1,
   FirstName: 'John',
-  LastName: 'Heart',
-  CompanyName: 'Super Mart of the West',
+  LastName: 'Heart',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
   Position: 'CEO',
   OfficeNo: '901',
   BirthDate: new Date(1964, 2, 16),
@@ -431,48 +430,234 @@ const employee = {
   Email: 'jheart@dx-email.com',
   Skype: 'jheart_DX_skype',
 };
-export class GrossProduct {
-  state: string;
 
-  year2016: number;
-
-  year2017: number;
-
-  year2018: number;
-  params?: any;
-
-}
-
-const grossProductData: GrossProduct[] = [{
-  state: 'Illinois',
-  year2016: 803,
-  year2017: 823,
-  year2018: 863,
-  params: {
-    Disable: true,
-    Contractid: 1040
+const grossProductData = [
+  {
+      "New": 24,
+      "New_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 1
+      },
+      "QA": 1,
+      "QA_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 11
+      },
+      "Processed": 2,
+      "Processed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 15
+      },
+      "Printed": 0,
+      "Printed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 671
+      },
+      "Received": 0,
+      "Received_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 672
+      },
+      "Authorized": 0,
+      "Authorized_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 673
+      },
+      "Processor Hold": 0,
+      "Processor Hold_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 676
+      },
+      "Returned": 0,
+      "Returned_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 677
+      },
+      "Denied": 0,
+      "Denied_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "12/1/2021 12:00:00 AM",
+          "ClaimStatusIdIn": 678
+      },
+      "Month": "12/2021"
+  },
+  {
+      "New": 28,
+      "New_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 1
+      },
+      "Printed": 0,
+      "Printed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 671
+      },
+      "Received": 0,
+      "Received_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 672
+      },
+      "Authorized": 0,
+      "Authorized_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 673
+      },
+      "Processed": 0,
+      "Processed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 674
+      },
+      "QA": 0,
+      "QA_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 675
+      },
+      "Processor Hold": 0,
+      "Processor Hold_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 676
+      },
+      "Returned": 0,
+      "Returned_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 677
+      },
+      "Denied": 0,
+      "Denied_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "1/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 678
+      },
+      "Month": "01/2022"
+  },
+  {
+      "New": 21,
+      "New_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 1
+      },
+      "Printed": 0,
+      "Printed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 671
+      },
+      "Received": 0,
+      "Received_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 672
+      },
+      "Authorized": 0,
+      "Authorized_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 673
+      },
+      "Processed": 0,
+      "Processed_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 674
+      },
+      "QA": 0,
+      "QA_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 675
+      },
+      "Processor Hold": 0,
+      "Processor Hold_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 676
+      },
+      "Returned": 0,
+      "Returned_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 677
+      },
+      "Denied": 0,
+      "Denied_parma": {
+          "Disable": false,
+          "ClaimType": 0,
+          "PeriodStartGreaterThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "PeriodStartLessThanOrEqualTo": "2/1/2022 12:00:00 AM",
+          "ClaimStatusIdIn": 678
+      },
+      "Month": "02/2022"
   }
-}, {
-  state: 'Indiana',
-  year2016: 316,
-  year2017: 332,
-  year2018: 332,
-}, {
-  state: 'Michigan',
-  year2016: 452,
-  year2017: 459,
-  year2018: 470,
-}, {
-  state: 'Ohio',
-  year2016: 621,
-  year2017: 642,
-  year2018: 675,
-}, {
-  state: 'Wisconsin',
-  year2016: 290,
-  year2017: 294,
-  year2018: 301,
-}];
+];
 export class MedalsInfo {
   country: string;
 
@@ -514,7 +699,7 @@ const medals: MedalsInfo[] = [{
 export class Service {
   drawName: string;
 
-  getGrossProductData(): GrossProduct[] {
+  getGrossProductData() {
     return grossProductData;
   }
 
