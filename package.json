@@ -1,6 +1,6 @@
 {
   "name": "angular-demo",
-  "version": "1.0.1-3",
+  "version": "1.0.1-4",
   "scripts": {
     "ng": "ng",
     "npx": "husky install",
