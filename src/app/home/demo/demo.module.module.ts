@@ -24,6 +24,7 @@ import { DynamicComponentComponent } from './dynamic/dynamic-component/dynamic-c
 import { AppDynamicBannerComponent } from './dynamic/dynamic-component/dynamic-layout-component';
 import { AdDirective } from './dynamic/ad.directive';
 import { DemoPieChartComponent } from './chart/pie.component';
+import { CC4DemoNodeComponent } from './node/node.component';
 
 
 const routes: Routes = [
@@ -76,7 +77,12 @@ const routes: Routes = [
        {
          path: 'pie',
          component: DemoPieChartComponent
-       }
+       },
+       {
+        path: 'node',
+        component: CC4DemoNodeComponent
+      }
+       
     ]
   },
 ];
@@ -103,6 +109,7 @@ const routes: Routes = [
     AppDynamicBannerComponent,
     DemoPieChartComponent,
     AdDirective,
+    CC4DemoNodeComponent,
   ],
   imports: [
     CommonModule,

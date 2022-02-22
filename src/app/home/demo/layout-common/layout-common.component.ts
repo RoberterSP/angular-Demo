@@ -48,6 +48,10 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'dynamic',
       name: 'dynamic'
+    },
+    {
+      path: 'node',
+      name: 'node'
     }
   ]
   constructor(
