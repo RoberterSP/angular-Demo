@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { PageScrollService } from 'ngx-page-scroll-core';
 // import * as fs from 'fs';
 
 @Component({
@@ -9,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CC4DemoNodeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit(): void {
     // this.writeToFile({}, 'aa.text')
+    this.pageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '.theEnd',
+    });
   }
 
 

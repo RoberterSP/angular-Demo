@@ -25,6 +25,9 @@ import { AppDynamicBannerComponent } from './dynamic/dynamic-component/dynamic-l
 import { AdDirective } from './dynamic/ad.directive';
 import { DemoPieChartComponent } from './chart/pie.component';
 import { CC4DemoNodeComponent } from './node/node.component';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
+import { DemoStepsComponent } from './steps/steps.component';
 
 
 const routes: Routes = [
@@ -81,6 +84,10 @@ const routes: Routes = [
        {
         path: 'node',
         component: CC4DemoNodeComponent
+      },
+      {
+        path: 'step',
+        component: DemoStepsComponent
       }
        
     ]
@@ -110,11 +117,14 @@ const routes: Routes = [
     DemoPieChartComponent,
     AdDirective,
     CC4DemoNodeComponent,
+    DemoStepsComponent,
   ],
   imports: [
     CommonModule,
     DxTextBoxModule,
+    NzStepsModule,
     DxTextAreaModule,
+    NgxPageScrollCoreModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]

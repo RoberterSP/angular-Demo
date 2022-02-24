@@ -52,6 +52,10 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'node',
       name: 'node'
+    },
+    {
+      path: 'step',
+      name: 'step'
     }
   ]
   constructor(
