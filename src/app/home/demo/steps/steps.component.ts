@@ -21,7 +21,7 @@ export class DemoStepsComponent {
       const myEle = document.querySelector(`.${ele}`) as HTMLElement
       const top = myEle.getBoundingClientRect().top
       const height = myEle.getBoundingClientRect().height
-      if (Math.abs(top)>0 && Math.abs(top) < height-200 && top < 0) {
+      if (Math.abs(top)>10 && Math.abs(top) < height && top < 0) {
         this.current = index
       }
     });
