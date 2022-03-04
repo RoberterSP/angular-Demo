@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DxScrollViewComponent, DxTextAreaComponent } from 'devextreme-angular';
 import { map, Observable } from 'rxjs';
 import { Service } from '../service/app.service';
@@ -42,16 +42,20 @@ export class FormComponent implements OnInit {
   ]
   constructor(
    public service: Service,
-   public activatedRoute: ActivatedRoute
+   public activatedRoute: ActivatedRoute,
+   private router: Router
   ) { 
     this.employee = service.getEmployee();
   }
 
   ngOnInit(): void {
     const aa = window.history.state;
-    debugger
-    this.state$ = this.activatedRoute.paramMap
-      .pipe(map(() => window.history.state, console.log(window.history.state, '$$$$$$$$$$$$$$$$$$$$$$$$')))
+    setTimeout(() => {
+      const extral = this.router.getCurrentNavigation()
+      console.log(extral, '$$$$$$$$$$$$$$$$$', window.history.state)
+    }, 1000);
+    // this.state$ = this.activatedRoute.paramMap
+    //   .pipe(map(() => window.history.state, console.log(window.history.state, '$$$$$$$$$$$$$$$$$$$$$$$$')))
   }
   onKeyDown(e: any) {
     console.log(e)
