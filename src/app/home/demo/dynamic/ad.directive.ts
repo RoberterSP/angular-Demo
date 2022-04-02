@@ -4,6 +4,9 @@ import { AfterViewInit, Directive, HostListener, Input, OnInit, TemplateRef, Vie
 
 @Directive({
   selector: '[adHost]',
+  host: {
+    '(click)': 'handleClick($event)'
+  }
 })
 export class AdDirective implements OnInit, AfterViewInit {
   @Input() defaultValue = '';
@@ -13,6 +16,9 @@ export class AdDirective implements OnInit, AfterViewInit {
     ) { }
   @HostListener('mouseenter') onMouseEnter() {
     console.log(this.defaultValue);
+  }
+  handleClick(e: any) {
+    console.log(e, '##$#$#$#$#$#')
   }
   ngOnInit(): void {
     console.log(this.defaultValue, '#####');
