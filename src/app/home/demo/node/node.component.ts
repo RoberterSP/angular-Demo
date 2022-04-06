@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { PageScrollService } from 'ngx-page-scroll-core';
-import jsonLogic from 'json-logic-js/logic.js';
+// import jsonLogic from 'json-logic-js/logic.js';
 // import * as fs from 'fs';
 
 @Component({

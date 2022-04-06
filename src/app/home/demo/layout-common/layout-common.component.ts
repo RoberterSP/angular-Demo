@@ -10,6 +10,10 @@ import { Service } from '../service/app.service';
 export class LayoutCommonComponent implements OnInit {
   extraMenu = [
     {
+      path: 'params',
+      name: 'params'
+    },
+    {
       path: 'form',
       name: 'form'
     },
