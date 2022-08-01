@@ -29,6 +29,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { DemoStepsComponent } from './steps/steps.component';
 import { DemoParamsComponent } from './params/params.component';
+import { InterSectionComponent } from './inter-section/inter-section.component';
 
 
 const routes: Routes = [
@@ -93,6 +94,10 @@ const routes: Routes = [
       {
         path: 'step',
         component: DemoStepsComponent
+      },
+      {
+        path: 'interSection',
+        component: InterSectionComponent
       }
        
     ]
@@ -123,6 +128,7 @@ const routes: Routes = [
     AdDirective,
     CC4DemoNodeComponent,
     DemoStepsComponent,
+    InterSectionComponent,
   ],
   imports: [
     CommonModule,

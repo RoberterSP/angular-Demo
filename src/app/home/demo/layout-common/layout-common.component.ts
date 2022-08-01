@@ -60,6 +60,10 @@ export class LayoutCommonComponent implements OnInit {
     {
       path: 'step',
       name: 'step'
+    },
+    {
+      path: 'interSection',
+      name: 'interSection'
     }
   ]
   constructor(
