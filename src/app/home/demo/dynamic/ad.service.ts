@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DemoBarChartComponent } from '../chart/chart.component';
+import { AppButtonsComponent } from '../btns/app-buttons/app-buttons.component';
 import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 
 import { AdItem } from './ad-item';
@@ -9,7 +9,7 @@ export class AdService {
   getAds() {
     return [
       new AdItem(
-        DemoBarChartComponent,
+        AppButtonsComponent,
         { name: 'Bombasto', bio: 'Brave as they come' }
       ),
       new AdItem(

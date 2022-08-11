@@ -30,6 +30,8 @@ import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { DemoStepsComponent } from './steps/steps.component';
 import { DemoParamsComponent } from './params/params.component';
 import { InterSectionComponent } from './inter-section/inter-section.component';
+import { VisibleDefDirective } from 'src/app/share/directive/visibleDef.directive';
+import { AppButtonsComponent } from './btns/app-buttons/app-buttons.component';
 
 
 const routes: Routes = [
@@ -124,8 +126,10 @@ const routes: Routes = [
     DemoBarChartComponent,
     DynamicComponentComponent,
     AppDynamicBannerComponent,
+    AppButtonsComponent,
     DemoPieChartComponent,
     AdDirective,
+    VisibleDefDirective,
     CC4DemoNodeComponent,
     DemoStepsComponent,
     InterSectionComponent,

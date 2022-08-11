@@ -15,9 +15,11 @@ export class AdDirective implements OnInit, AfterViewInit {
     public viewContainerRef: ViewContainerRef
     ) { }
   @HostListener('mouseenter') onMouseEnter() {
+    debugger
     console.log(this.defaultValue);
   }
   handleClick(e: any) {
+    debugger
     console.log(e, '##$#$#$#$#$#')
   }
   ngOnInit(): void {
@@ -25,6 +27,6 @@ export class AdDirective implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    console.log(this.templateRef)
+    console.log(this.templateRef, 'templateRef')
   }
 }
