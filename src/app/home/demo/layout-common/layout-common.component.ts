@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AppDemoDataService } from '../service/app-data-service.service';
 import { Service } from '../service/app.service';
 
 @Component({
-  providers:[Service],
+  providers:[Service, AppDemoDataService],
   selector: 'app-layout-common',
   templateUrl: './layout-common.component.html',
   styleUrls: ['./layout-common.component.scss']
@@ -62,16 +63,22 @@ export class LayoutCommonComponent implements OnInit {
       name: 'step'
     },
     {
+      path: 'btn',
+      name: 'btn'
+    },
+    {
       path: 'interSection',
       name: 'interSection'
     }
   ]
   constructor(
-    public service: Service
+    public service: Service,
+    public demoDataService: AppDemoDataService
   ) { }
 
   ngOnInit() {
     this.service.init()
+    this.demoDataService.initView()
   }
 
 }

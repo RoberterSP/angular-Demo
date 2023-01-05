@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppDemoDataService } from '../../service/app-data-service.service';
 
 @Component({
   selector: 'app-app-buttons',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppButtonsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public demoDataService: AppDemoDataService
+  ) { }
 
   ngOnInit() {
   }

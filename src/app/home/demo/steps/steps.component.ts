@@ -1,6 +1,5 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { PageScrollService } from 'ngx-page-scroll-core';
 import { debounceTime, fromEvent, map, Subscription } from 'rxjs';
 @Component({
   selector: 'nz-demo-steps-step-next',
@@ -28,10 +27,6 @@ export class DemoStepsComponent {
   }
   onIndexChange(index: number): void {
     this.current = index;
-    this.pageScrollService.scroll({
-        document: this.document,
-        scrollTarget: `.name${index + 1}`,
-      });
   }
   
   formEventFn () {
@@ -89,6 +84,6 @@ export class DemoStepsComponent {
     // });
   }
 
-  constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) { }
+  constructor( @Inject(DOCUMENT) private document: any) { }
 
 }

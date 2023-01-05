@@ -1,0 +1,46 @@
+<div style="background-color: #f5f7fa;">
+  <div style="padding: 8px;">
+    <dx-form
+      class="txt-form summary-form"
+      #dxForm
+      readOnly="true"
+      [items]="formItems"
+      [(formData)]="formData"
+      [alignItemLabels]="false"
+      [colCount]="4"
+    >
+      <!-- <div *dxTemplate="let data of 'address'">
+        <div>
+          {{ formData?.AddressWithUnit }}
+        </div>
+        <div>
+          {{ formData?.City }}, {{ formData?.State }} {{ formData?.Zip }}
+          <span
+            class="cur ml-1 text-info"
+            *ngIf="!formData?.SameAddress"
+            id="SameAddress"
+            (mouseover)="showToolTip = true"
+            (mouseleave)="showToolTip = false"
+            >Mailing Address</span
+          >
+          <dx-tooltip
+            target="#SameAddress"
+            position="bottom"
+            [(visible)]="showToolTip"
+            [closeOnOutsideClick]="false"
+          >
+            <div *dxTemplate="let data of 'content'">
+              <div>{{ formData?.MailAddressWithUnit }}</div>
+              <div>
+                {{ formData?.MailCity }}, {{ formData?.MailState }}
+                {{ formData?.MailZip }}
+              </div>
+            </div>
+          </dx-tooltip>
+        </div> -->
+      <!-- </div> -->
+    </dx-form>
+  </div>
+</div>
+
+

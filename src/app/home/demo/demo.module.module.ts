@@ -25,13 +25,13 @@ import { AppDynamicBannerComponent } from './dynamic/dynamic-component/dynamic-l
 import { AdDirective } from './dynamic/ad.directive';
 import { DemoPieChartComponent } from './chart/pie.component';
 import { CC4DemoNodeComponent } from './node/node.component';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { DemoStepsComponent } from './steps/steps.component';
 import { DemoParamsComponent } from './params/params.component';
 import { InterSectionComponent } from './inter-section/inter-section.component';
 import { VisibleDefDirective } from 'src/app/share/directive/visibleDef.directive';
 import { AppButtonsComponent } from './btns/app-buttons/app-buttons.component';
+import { WaitEntityNewSummaryComponent } from './summary/component';
 
 
 const routes: Routes = [
@@ -52,6 +52,10 @@ const routes: Routes = [
       {
         path: 'form',
         component: FormComponent
+      },
+      {
+        path: 'btn',
+        component: AppButtonsComponent
       },
       {
         path: 'popup',
@@ -100,6 +104,10 @@ const routes: Routes = [
       {
         path: 'interSection',
         component: InterSectionComponent
+      },
+      {
+        path: 'summary',
+        component: WaitEntityNewSummaryComponent
       }
        
     ]
@@ -133,13 +141,13 @@ const routes: Routes = [
     CC4DemoNodeComponent,
     DemoStepsComponent,
     InterSectionComponent,
+    WaitEntityNewSummaryComponent
   ],
   imports: [
     CommonModule,
     DxTextBoxModule,
     NzStepsModule,
     DxTextAreaModule,
-    NgxPageScrollCoreModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]
