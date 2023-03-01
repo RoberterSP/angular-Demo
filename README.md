@@ -30,3 +30,16 @@ rxjs practice：
     combineLatest，取各来源数据流最后一个值合并为数组
 
 另，最好使用 $ 结尾的命名方式来表示Observable，例：input$。
+
+
+
+
+Service Work
+1. 更新机制：从旧版本都新版本更新，会抛出更新事件？？？ 待验证。进行自动更新。
+2. Tab1 和 Tab2 的资源分开控制
+3. 
+
+
+
+
+
