@@ -3,9 +3,10 @@
   [dataSource]="orders"
   keyExpr="ID"
   [showBorders]="true"
+  (onExporting)="onExporting($event)"
 >
-  <dxo-selection mode="single"></dxo-selection>
-
+  <dxo-selection mode="multiple"></dxo-selection>
+  <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
   <dxi-column
     dataField="OrderNumber"
     [width]="130"
